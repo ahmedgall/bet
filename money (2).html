@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انضم لقناتنا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: #0e1621; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; overflow: hidden; }
+        .wrapper { text-align: center; width: 90%; max-width: 400px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .logo { width: 80px; height: 80px; background: #2481cc; border-radius: 50%; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 20px rgba(36, 129, 204, 0.4); }
+        .logo svg { width: 40px; fill: white; }
+        h1 { font-size: 20px; margin-bottom: 10px; }
+        p { font-size: 15px; color: #abaeb3; margin-bottom: 25px; line-height: 1.6; }
+        .main-btn { display: block; background: #2481cc; color: white; text-decoration: none; padding: 16px; border-radius: 12px; font-weight: bold; font-size: 17px; transition: 0.3s; border: none; cursor: pointer; }
+        .main-btn:active { transform: scale(0.95); background: #1c66a0; }
+        .footer-note { margin-top: 15px; font-size: 11px; color: #546b82; }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="logo">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.35-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.64 6.3-2.73 7.55-3.26 3.58-1.51 4.32-1.78 4.81-1.79.11 0 .35.03.5.16.13.12.17.29.18.41.01.07.01.22 0 .28z"/></svg>
+        </div>
+
+        <h1>تحويل آمن للتليجرام</h1>
+        <p>اضغط على الزر أدناه للانتقال للقناة مباشرة عبر التطبيق.</p>
+
+        <a href="https://t.me/+QxnEDHhWygBhY2Jk" class="main-btn" id="redirectBtn">
+            فتح في تليجرام (Telegram)
+        </a>
+
+        <div class="footer-note">إذا ظهرت لك رسالة خطأ، انتظر ثانية واحدة وسيتم الإصلاح تلقائياً.</div>
+    </div>
+
+    <script>
+        const inviteCode = "QxnEDHhWygBhY2Jk";
+        const deepLink = "tg://join?invite=" + inviteCode;
+        const webLink = "https://t.me/+" + inviteCode;
+        const btn = document.getElementById('redirectBtn');
+
+        function attemptRedirect() {
+            // محاولة فتح التطبيق مباشرة باستخدام البروتوكول
+            window.location.href = deepLink;
+
+            // إذا لم يتم الخروج من الصفحة (يعني البروتوكول لم يُدعم)، نجهز الزر برابط الويب العادي
+            setTimeout(() => {
+                btn.href = webLink;
+            }, 500);
+        }
+
+        // تشغيل المحاولة عند التحميل
+        window.onload = attemptRedirect;
+    </script>
+</body>
+</html>
